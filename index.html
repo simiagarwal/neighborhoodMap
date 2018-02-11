@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="js/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"><!-- Custom styles for this template -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  
+  <title>Neighborhood Map Project</title>
+ 
+
+ </head>
+ <body>
+  <div class="toggled' id="wrapper">
+    <div id="sidebar-wrapper">
+      <div class="sidebar-nav" style="margin-left: 2em">
+        <p><h1> Locations</h1></p>
+        <form>
+          <input data-bind="textInput:filter" id="street" placeholder="Search...">
+        </form>
+        <hr>
+        <ul data-bind="foreach:myLocations">
+          <li data-bind="text:name, visible:visible, click: $root.lastViewClick"></li>
+        </ul>
+        <hr>
+        <div class="wikipedia-container">
+          <h3 id="wikipedia-header">Relevent Wikipedia Links</h3>
+          <p>Click on Location Names</p>
+          <ul data-bind="foreach: wikipedia">
+            <li> 
+              <a data-bind="attr: { href: $data, title: $data}">Relevent Links</a>
+            </li>
+          </ul>
+
+        </div>
+    </div> 
+  </div> 
+  <div id="page-content-wrapper">
+    <div id="map"></div>
+  </div>
+  <div class="container-fluid">
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/vendor/jquery/jquery.min.js">
+    </script> 
+    <script src="js/vendor/popper/popper.min.js">
+    </script> 
+    <script src="js/vendor/bootstrap/js/bootstrap.min.js">
+    </script> <!-- Menu Toggle Script -->
+
+
+    <script src="js/lib/jquery-3.3.1.min.js"></script>
+    <script src="js/lib/knockout-3.4.2.js"></script>
+    <script src="js/helper.js"></script> 
+    
+    <script async defer onerror="mapError()"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXv0NBXIpnXUmksc_foJVZ_Dxdx4Eyo6g&v=3&callback=viewModel.initMap">
+    </script>
+  </div> 
+ </body>
+</html>
