@@ -17,7 +17,7 @@ var locations = [
   {title: 'Tuileries Garden', location:{lat:48.865302, lng: 2.327284}}
           
   ];
-
+// making variables as knockout observables
 var Locations = function(data) {
     this.title = ko.observable(data.title);
     this.visiable = ko.observable(true);
@@ -25,7 +25,7 @@ var Locations = function(data) {
     this.marker = data.marker;
 
 };
-
+//Declaring the view model
 var ViewModel= function() {
     var self = this;
     this.myLocations = ko.observableArray( [] );
@@ -166,7 +166,7 @@ var ViewModel= function() {
 };
 
 
-
+// calling the error function
 window.mapError = function( errorMsg, url, lineNumber ) {
     alert( 'Google Maps Failed To Load' );
 };
@@ -189,6 +189,7 @@ window.mapError = function( errorMsg, url, lineNumber ) {
   
 //     this.initMap();
 // }  
+//loading data from wiki api
 var loadData = function( name ) {
 
     var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + name + '&format=json&callback=wikiCallback';
